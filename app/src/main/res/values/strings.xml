@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Firebase Exercise 2</string>
+    <string name="e_mail">E-mail</string>
+    <string name="password">Password</string>
+    <string name="registrar">Registrar</string>
+    <string name="login">Ingresar</string>
+    <string name="tipoUsuario">Tipo User :</string>
+    <string name="usuario_mail">UserName / E-Mail</string>
+    <string name="bienvenido">Bienvenido : </string>
+    <string name="pedir">Pedir</string>
+    <string name="administar">Administar</string>
+    <string name="nombre">Nombre</string>
+    <string name="datos_regresados">Datos Regresados</string>
+    <string name="cantidad_de_pedidos">Cantidad de Pedidos :</string>
+    <string name="_0">0</string>
+    <string name="ver_todos">Ver Todos</string>
+    <string name="info">Info</string>
+
+</resources>

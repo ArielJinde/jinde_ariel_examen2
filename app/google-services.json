@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "580121297591",
+    "firebase_url": "https://comida-rapida-5fdcf-default-rtdb.firebaseio.com",
+    "project_id": "comida-rapida-5fdcf",
+    "storage_bucket": "comida-rapida-5fdcf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580121297591:android:4ebf9d50527a90f01e8332",
+        "android_client_info": {
+          "package_name": "com.example.app_sistema_ventas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580121297591-vkqubda039kkfp30fk9npm2k89narss8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app_sistema_ventas",
+            "certificate_hash": "c1573c431bb28e6dc2a651cd8cc43444226f1d9f"
+          }
+        },
+        {
+          "client_id": "580121297591-5kfnl54aesjm615ou2e0nn02ce5qp49f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgaAObaXDh6ve_e_iwjv5gKQTSZwAODdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580121297591-5kfnl54aesjm615ou2e0nn02ce5qp49f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580121297591:android:87add865e17a3e991e8332",
+        "android_client_info": {
+          "package_name": "jinde.appfb01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580121297591-5kfnl54aesjm615ou2e0nn02ce5qp49f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgaAObaXDh6ve_e_iwjv5gKQTSZwAODdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580121297591-5kfnl54aesjm615ou2e0nn02ce5qp49f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580121297591:android:2b657a7cfa2509b71e8332",
+        "android_client_info": {
+          "package_name": "jinde.appfb02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580121297591-5kfnl54aesjm615ou2e0nn02ce5qp49f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgaAObaXDh6ve_e_iwjv5gKQTSZwAODdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580121297591-5kfnl54aesjm615ou2e0nn02ce5qp49f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

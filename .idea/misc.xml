@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/drawable/button_login.xml" value="0.16" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/drawable/ic_help.xml" value="0.2095" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/drawable/ic_logout.xml" value="0.2095" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/drawable/ic_shopping_cart.xml" value="0.191" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/drawable/input_text.xml" value="0.2095" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/layout/activity_administrar.xml" value="0.1" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/layout/activity_auth.xml" value="0.25" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/layout/activity_home.xml" value="0.20466321243523317" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/layout/activity_lista_mis_pedidos.xml" value="0.17074275362318841" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/layout/activity_lista_pedidos.xml" value="0.17" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/layout/activity_realizar_pedido.xml" value="0.17074275362318841" />
+        <entry key="..\:/Carrera_TI/6to_TI/App_Moviles/Semestre2021/AppFB02/app/src/main/res/menu/menu_overflow.xml" value="0.18" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

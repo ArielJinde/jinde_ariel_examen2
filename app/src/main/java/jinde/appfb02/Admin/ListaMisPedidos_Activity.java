@@ -32,7 +32,7 @@ import jinde.appfb02.Clases.Pedidos;
 import jinde.appfb02.R;
 
 public class ListaMisPedidos_Activity extends AppCompatActivity {
-    private TextView text;
+    private TextView text,nombreT,apellidoT;
     private ListView listViewDatos;
     //Variables Firebase
     private FirebaseAuth mAuth;
@@ -43,22 +43,36 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_mis_pedidos);
 
+
+
+
+        // Initialize local variables
         text = findViewById(R.id.textView4);
+        nombreT = findViewById(R.id.textView_nombreL);
+        apellidoT = findViewById(R.id.textView_ApellidoL);
+        listViewDatos = findViewById(R.id.listView_Datos);
+
+        //Initialize firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        //Traer Datos
         Bundle bundle = getIntent().getExtras();
         String mail = bundle.getString("mail").toString();
         String nom   = bundle.getString("nombre").toString();
         String ape = bundle.getString("apellido").toString();
         text.setText("Lista de pedidos de:  " + mail);
-
-        //Disabled MisPedidos
-
-        listViewDatos = findViewById(R.id.listView_Datos);
-        //Initialize firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-
         //Button To Back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Toast.makeText(getApplicationContext(), "Usuario  "+nom+"  "+ ape+"  "+mail,
+                Toast.LENGTH_LONG).show();
+
+
+        //Cargar vista de datos
+        nombreT.setText(nom);
+        apellidoT.setText(ape);
+
 
         cargarPedidos(nom,ape);
     }

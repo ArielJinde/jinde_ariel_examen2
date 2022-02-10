@@ -53,7 +53,7 @@
                 android:layout_width="10dp"
 
                 android:layout_height="wrap_content"
-                android:text="Apellido"
+                android:text="@string/apellido"
                 app:layout_column="2"
                 app:layout_gravity="fill_horizontal"
                 app:layout_row="0" />

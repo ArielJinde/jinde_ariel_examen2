@@ -15,5 +15,7 @@
     <string name="_0">0</string>
     <string name="ver_todos">Ver Todos</string>
     <string name="info">Info</string>
+    <string name="cliente">Cliente :</string>
+    <string name="apellido">Apellido</string>
 
 </resources>

@@ -35,19 +35,32 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <Space
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="8dp" />
+                    android:layout_height="48dp"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textViewUsuario"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Cliente" />
+                    <TextView
+                        android:id="@+id/textViewUsuario"
+                        android:layout_width="103dp"
+                        android:layout_height="match_parent"
+                        android:hint="@string/cliente"
+                        android:textStyle="bold"/>
 
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/textView_nombreL"
+                        android:layout_width="103dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/nombre" />
+
+                    <TextView
+                        android:id="@+id/textView_ApellidoL"
+                        android:layout_width="103dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="@string/apellido" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/buttonClient"

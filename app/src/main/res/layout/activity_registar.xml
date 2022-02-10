@@ -57,9 +57,43 @@
                 <Space
                     android:layout_width="match_parent"
                     android:layout_height="8dp" />
+                <EditText
+                    android:id="@+id/editText_IngresarNom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:autofillHints=""
+
+                    android:background="@drawable/input_text"
+                    android:hint="@string/nombre"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:textColorHint="#616161" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
+                <EditText
+                    android:id="@+id/editText_IngresarApe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:autofillHints=""
+
+                    android:background="@drawable/input_text"
+                    android:hint="@string/apellido"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:textColorHint="#616161" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
 
                 <EditText
-                    android:id="@+id/editTextTextEmailAddress"
+                    android:id="@+id/editText_EmailAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="0dp"
@@ -77,7 +111,7 @@
                     android:layout_height="8dp" />
 
                 <EditText
-                    android:id="@+id/editTextTextPassword"
+                    android:id="@+id/editTexT_Password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="0dp"
@@ -121,7 +155,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="25dp"
-                    android:text="TextView" />
+                    android:text="@string/si_tengo_cuenta" />
 
             </LinearLayout>
         </LinearLayout>

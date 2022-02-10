@@ -2,7 +2,7 @@
     <string name="app_name">Firebase Exercise 2</string>
     <string name="e_mail">E-mail</string>
     <string name="password">Password</string>
-    <string name="registrar">Registrar</string>
+    <string name="registrar">Registrar Usuario</string>
     <string name="login">Ingresar</string>
     <string name="tipoUsuario">Tipo User :</string>
     <string name="usuario_mail">UserName / E-Mail</string>
@@ -19,5 +19,7 @@
     <string name="apellido">Apellido</string>
     <string name="cedula">cedula</string>
     <string name="correo">Correo</string>
+    <string name="nombre">Nombre</string>
+    <string name="si_tengo_cuenta">Si tengo Cuenta</string>
 
 </resources>

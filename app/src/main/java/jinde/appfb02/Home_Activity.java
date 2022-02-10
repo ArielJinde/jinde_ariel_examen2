@@ -172,10 +172,10 @@ public class Home_Activity extends AppCompatActivity {
 
     //[Method enabled bottom user as admin]
     private void habilitateAdmin(String user) {
-        if (user.equals("administrador")) {
+    /*    if (user.equals("administrador")) {
             administrar.setVisibility(View.VISIBLE);
             administrar.setEnabled(true);
-        }
+        }*/
     }
 
     @Override

@@ -60,13 +60,18 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="@string/apellido" />
+
+                    <Button
+                        android:id="@+id/buttonClient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ver Cliente"
+                        android:drawableLeft="@drawable/ic_info"/>
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/buttonClient"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Ver Cliente" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="21dp" />
 
                 <ScrollView
                     android:layout_width="wrap_content"

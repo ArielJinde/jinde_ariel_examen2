@@ -32,7 +32,7 @@ import jinde.appfb02.Clases.Pedidos;
 import jinde.appfb02.R;
 
 public class ListaMisPedidos_Activity extends AppCompatActivity {
-    private TextView text,nombreT,apellidoT;
+    private TextView text, nombreT, apellidoT;
     private ListView listViewDatos;
     //Variables Firebase
     private FirebaseAuth mAuth;
@@ -42,8 +42,6 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_mis_pedidos);
-
-
 
 
         // Initialize local variables
@@ -59,13 +57,13 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
         //Traer Datos
         Bundle bundle = getIntent().getExtras();
         String mail = bundle.getString("mail").toString();
-        String nom   = bundle.getString("nombre").toString();
+        String nom = bundle.getString("nombre").toString();
         String ape = bundle.getString("apellido").toString();
         text.setText("Lista de pedidos de:  " + mail);
         //Button To Back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Toast.makeText(getApplicationContext(), "Usuario  "+nom+"  "+ ape+"  "+mail,
+        Toast.makeText(getApplicationContext(), "Usuario  " + nom + "  " + ape + "  " + mail,
                 Toast.LENGTH_LONG).show();
 
 
@@ -73,11 +71,15 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
         nombreT.setText(nom);
         apellidoT.setText(ape);
 
+        //Proceso para cargar la lista de datos
+        String val1 = nombreT.getText().toString().trim();
+        String val2 = apellidoT.getText().toString().trim();
+        cargarPedidos(val1, val2);
 
-        cargarPedidos(nom,ape);
+
     }
 
-    public void cargarPedidos(String nombreS,String apellidoS) {
+    public void cargarPedidos(String nombreS, String apellidoS) {
 
         List<Pedidos> pedidos = new ArrayList<>();
         databaseReference.child("pedidos").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -91,13 +93,13 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
                         String id = ds.getKey();
 
                         String nombre = (String) ds.child("0").child("nombre").getValue();
-                        String apellido = (String)ds.child("0").child("apellido").getValue();
-                        String direccion = (String)ds.child("0").child("direccion").getValue();
-                        String correo =(String) ds.child("1").child("correo").getValue();
-                        String totalparcial ="dsd";
-                        double total = 0.2;
+                        String apellido = (String) ds.child("0").child("apellido").getValue();
+                        String direccion = (String) ds.child("0").child("direccion").getValue();
+                        String correo = (String) ds.child("1").child("correo").getValue();
+                        String totalparcial = ds.child("2").getValue().toString();
+                        double total =  Double.parseDouble(ds.child("4").getValue().toString());
 
-                        if (correo!=null && nombre.equals(nombreS) && apellido.equals(apellidoS))
+                        if (correo != null && apellido.equals(apellidoS))
                             pedidos.add(new Pedidos(id, correo, nombre, apellido, direccion, totalparcial, total));
                     }
 

@@ -40,17 +40,19 @@
 
             <TextView
                 android:id="@+id/textView_Nombre"
-                android:layout_width="113dp"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
                 android:text="@string/nombre"
                 app:layout_column="1"
-                app:layout_gravity="fill_horizontal"
 
+                app:layout_gravity="fill_horizontal"
                 app:layout_row="0" />
 
             <TextView
                 android:id="@+id/textView_Apellido"
-                android:layout_width="151dp"
+                android:layout_width="10dp"
 
+                android:layout_height="wrap_content"
                 android:text="Apellido"
                 app:layout_column="2"
                 app:layout_gravity="fill_horizontal"
@@ -118,24 +120,25 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0">
 
         <Button
             android:id="@+id/button_Pedir"
             android:layout_width="match_parent"
             android:layout_height="128dp"
-            android:text="@string/pedir"
             android:drawableLeft="@mipmap/ic_order_foreground"
-            />
+            android:text="@string/pedir" />
 
 
         <Button
             android:id="@+id/button_Admin"
             android:layout_width="match_parent"
             android:layout_height="152dp"
-            android:text="@string/administar"
-            android:drawableLeft="@mipmap/ic_admin_foreground"/>
+            android:drawableLeft="@mipmap/ic_admin_foreground"
+            android:text="@string/administar" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,6 +46,8 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
         text = findViewById(R.id.textView4);
         Bundle bundle = getIntent().getExtras();
         String mail = bundle.getString("mail").toString();
+        String nom   = bundle.getString("nombre").toString();
+        String ape = bundle.getString("apellido").toString();
         text.setText("Lista de pedidos de:  " + mail);
 
         //Disabled MisPedidos
@@ -58,10 +60,10 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
         //Button To Back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        cargarPedidos("juanito@gmail.com");
+        cargarPedidos(nom,ape);
     }
 
-    public void cargarPedidos(String string) {
+    public void cargarPedidos(String nombreS,String apellidoS) {
 
         List<Pedidos> pedidos = new ArrayList<>();
         databaseReference.child("pedidos").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -81,7 +83,7 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
                         String totalparcial ="dsd";
                         double total = 0.2;
 
-                        if (correo!=null && correo.equals(string))
+                        if (correo!=null && nombre.equals(nombreS) && apellido.equals(apellidoS))
                             pedidos.add(new Pedidos(id, correo, nombre, apellido, direccion, totalparcial, total));
                     }
 

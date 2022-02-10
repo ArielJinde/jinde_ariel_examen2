@@ -67,6 +67,9 @@ public class Home_Activity extends AppCompatActivity {
             mail = bundle.getString("mail").toString();
         }
 
+        Toast.makeText(getApplicationContext(), "Ningun Dato traido : " +
+                        mAuth.getCurrentUser().getEmail(),
+                Toast.LENGTH_SHORT).show();
         //Changer user data
         obtenerDatosUsuario(mail);
 
@@ -90,6 +93,8 @@ public class Home_Activity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Administar.class);
 
                 intent.putExtra("mail", mail);
+
+
                 startActivityForResult(intent, 100);
             }
         });
@@ -202,7 +207,8 @@ public class Home_Activity extends AppCompatActivity {
                 break;
             case R.id.item_misOrdenes:
                 Intent intent = new Intent(getApplicationContext(), ListaMisPedidos_Activity.class);
-
+                intent.putExtra("nombre", nombreT.getText());
+                intent.putExtra("apellido", apellidoT.getText());
                 intent.putExtra("mail", mail);
                 startActivityForResult(intent, 100);
                 break;

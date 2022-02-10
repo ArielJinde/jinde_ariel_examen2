@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppFB02">
         <activity
+            android:name=".Admin.VistaClienteActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistarActivity"
             android:exported="false" />
         <activity

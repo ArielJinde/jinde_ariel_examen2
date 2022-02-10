@@ -100,7 +100,8 @@ public class RegistarActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task.isSuccessful()) {
-                                
+                                Toast.makeText(getApplicationContext(), "Usuario Creado " +
+                                        "!", Toast.LENGTH_SHORT).show();
                             finish();
                             }else   {
                                 Toast.makeText(getApplicationContext(), "No se creo el usario Correctamente" +

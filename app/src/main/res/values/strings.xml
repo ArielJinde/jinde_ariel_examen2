@@ -19,7 +19,7 @@
     <string name="apellido">Apellido</string>
     <string name="cedula">cedula</string>
     <string name="correo">Correo</string>
-    <string name="nombre">Nombre</string>
+    <string name="nombreT">Nombre</string>
     <string name="si_tengo_cuenta">Si tengo Cuenta</string>
 
 </resources>

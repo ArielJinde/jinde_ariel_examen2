@@ -47,7 +47,7 @@ public class RegistarActivity extends AppCompatActivity {
         editText_Telf = findViewById(R.id.editText_Telefono);
 
 
-        buttonRegistar = findViewById(R.id.buttonRegistar);
+        buttonRegistar = findViewById(R.id.buttonCrerUser);
 
 
         buttonRegistar.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +100,7 @@ public class RegistarActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task.isSuccessful()) {
+                                
                             finish();
                             }else   {
                                 Toast.makeText(getApplicationContext(), "No se creo el usario Correctamente" +

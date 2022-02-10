@@ -81,6 +81,8 @@ public class Home_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), RealizarPedido_Activity.class);
+                intent.putExtra("nombre", nombreT.getText().toString().trim());
+                intent.putExtra("apellido", apellidoT.getText().toString().trim());
                 intent.putExtra("mail", mail);
                 startActivity(intent);
             }

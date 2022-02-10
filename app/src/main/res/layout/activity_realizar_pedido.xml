@@ -48,14 +48,14 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView_nombreL"
+                        android:id="@+id/textView_nombreR"
                         android:layout_width="103dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="@string/nombre" />
 
                     <TextView
-                        android:id="@+id/textView_ApellidoL"
+                        android:id="@+id/textView_ApellidoR"
                         android:layout_width="103dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

@@ -32,9 +32,9 @@ public class RealizarPedido_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_realizar_pedido);
         // Initialize local variables
-        text = findViewById(R.id.textView4);
-        nombreT = findViewById(R.id.textView_nombreL);
-        apellidoT = findViewById(R.id.textView_ApellidoL);
+        text = findViewById(R.id.textView6);
+        nombreT = findViewById(R.id.textView_nombreR);
+        apellidoT = findViewById(R.id.textView_ApellidoR);
         listViewDatos = findViewById(R.id.listView_Datos);
 
         //Initialize firebase Auth
@@ -46,9 +46,13 @@ public class RealizarPedido_Activity extends AppCompatActivity {
         String mail = bundle.getString("mail").toString();
         String nom = bundle.getString("nombre").toString();
         String ape = bundle.getString("apellido").toString();
-
+        text.setText("Carrito de :  " + mail);
         //Button Back to Before
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Cargar vista de datos
+        nombreT.setText(nom);
+        apellidoT.setText(ape);
 
     }
 

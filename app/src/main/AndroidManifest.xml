@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppFB02">
         <activity
+            android:name=".RegistarActivity"
+            android:exported="false" />
+        <activity
             android:name=".Admin.ListaMisPedidos_Activity"
             android:exported="false" />
         <activity

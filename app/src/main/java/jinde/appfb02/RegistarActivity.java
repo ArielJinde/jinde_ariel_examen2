@@ -59,22 +59,22 @@ public class RegistarActivity extends AppCompatActivity {
                 Mail = editTextMail.getText().toString().trim();
                 Password = editTextPassword.getText().toString().trim();
                 Telefono = editText_Telf.getText().toString().trim();
+                if (validadorDeCedula(Cedula)) {
+                    if (Cedula.isEmpty() && Nombre.isEmpty() && Apellido.isEmpty() &&
+                            Mail.isEmpty() && Password.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), "Campos Vacios !", Toast.LENGTH_SHORT).show();
 
-                if (Cedula.isEmpty() && Nombre.isEmpty() && Apellido.isEmpty() &&
-                        Mail.isEmpty() && Password.isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Campos Vacios !", Toast.LENGTH_SHORT).show();
-
-                } else {
-
-                    if (Password.length() >= 6) {
-                        registrarUsario();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Campo Password alemnos 6 caracteres" +
-                                "!", Toast.LENGTH_SHORT).show();
 
+                        if (Password.length() >= 6) {
+                            registrarUsario();
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Campo Password alemnos 6 caracteres" +
+                                    "!", Toast.LENGTH_SHORT).show();
+
+                        }
                     }
                 }
-
             }
         });
     }
@@ -102,8 +102,8 @@ public class RegistarActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Usuario Creado " +
                                         "!", Toast.LENGTH_SHORT).show();
-                            finish();
-                            }else   {
+                                finish();
+                            } else {
                                 Toast.makeText(getApplicationContext(), "No se creo el usario Correctamente" +
                                         "!", Toast.LENGTH_SHORT).show();
                             }
@@ -115,5 +115,54 @@ public class RegistarActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public boolean validadorDeCedula(String cedula) {
+        boolean cedulaCorrecta = false;
+
+        try {
+
+            if (cedula.length() == 10) // ConstantesApp.LongitudCedula
+            {
+                int tercerDigito = Integer.parseInt(cedula.substring(2, 3));
+                if (tercerDigito < 6) {
+// Coeficientes de validación cédula
+// El decimo digito se lo considera dígito verificador
+                    int[] coefValCedula = {2, 1, 2, 1, 2, 1, 2, 1, 2};
+                    int verificador = Integer.parseInt(cedula.substring(9, 10));
+                    int suma = 0;
+                    int digito = 0;
+                    for (int i = 0; i < (cedula.length() - 1); i++) {
+                        digito = Integer.parseInt(cedula.substring(i, i + 1)) * coefValCedula[i];
+                        suma += ((digito % 10) + (digito / 10));
+                    }
+
+                    if ((suma % 10 == 0) && (suma % 10 == verificador)) {
+                        cedulaCorrecta = true;
+                    } else if ((10 - (suma % 10)) == verificador) {
+                        cedulaCorrecta = true;
+                    } else {
+                        cedulaCorrecta = false;
+                    }
+                } else {
+                    cedulaCorrecta = false;
+                }
+            } else {
+                cedulaCorrecta = false;
+            }
+        } catch (NumberFormatException nfe) {
+            cedulaCorrecta = false;
+        } catch (Exception err) {
+            Toast.makeText(getApplicationContext(), "Una excepcion ocurrio en " +
+                    "el proceso de validadcion" +
+                    "!", Toast.LENGTH_SHORT).show();
+            cedulaCorrecta = false;
+        }
+
+        if (!cedulaCorrecta) {
+            Toast.makeText(getApplicationContext(), "La Cédula ingresada es Incorrecta" +
+                    "!", Toast.LENGTH_SHORT).show();
+        }
+        return cedulaCorrecta;
     }
 }

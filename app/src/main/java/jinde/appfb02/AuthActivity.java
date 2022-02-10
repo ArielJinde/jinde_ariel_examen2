@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class AuthActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private EditText editTextMail, editTextPassword;
-    private Button buttonLogin;
+    private Button buttonLogin,buttonRegistar;
     private static final String TAG = "EmailPassword";
 
 
@@ -32,7 +32,8 @@ public class AuthActivity extends AppCompatActivity {
         editTextMail = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
-
+        buttonRegistar = findViewById(R.id.buttonRegistar);
+        //Boton para ingresar con usuario y contraseña
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +47,15 @@ public class AuthActivity extends AppCompatActivity {
                 }
             }
         });
+        //Boton para registrar un usario
 
+        buttonRegistar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AuthActivity.this, RegistarActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

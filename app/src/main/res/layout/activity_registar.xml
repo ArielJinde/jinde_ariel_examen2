@@ -34,8 +34,29 @@
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:paddingBottom="20dp"
+                    android:text="Registro"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/editText_Cedula"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Registro" />
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp"
+                    android:autofillHints=""
+
+                    android:background="@drawable/input_text"
+                    android:hint="@string/cedula"
+                    android:minHeight="48dp"
+                    android:padding="10dp"
+                    android:textColorHint="#616161" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp" />
 
                 <EditText
                     android:id="@+id/editTextTextEmailAddress"
@@ -46,7 +67,7 @@
                     android:autofillHints=""
 
                     android:background="@drawable/input_text"
-                    android:hint="@string/usuario_mail"
+                    android:hint="@string/correo"
                     android:minHeight="48dp"
                     android:padding="10dp"
                     android:textColorHint="#616161" />
@@ -66,7 +87,7 @@
                     android:background="@drawable/input_text"
                     android:ems="10"
                     android:hint="@string/password"
-                    android:inputType="text"
+                    android:maxLength="10"
                     android:minHeight="48dp"
                     android:padding="10dp"
                     android:textColorHint="#616161" />
@@ -85,24 +106,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:background="@drawable/input_text"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/button_login"
                         android:text="@string/registrar" />
 
                     <Space
                         android:layout_width="8dp"
                         android:layout_height="wrap_content" />
 
-                    <Button
-                        android:id="@+id/buttonLogin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:background="@drawable/button_login"
-
-                        android:text="@string/login"
-                        android:textColor="#FFFFFF"
-                        tools:text="@string/login" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:text="TextView" />
 
             </LinearLayout>
         </LinearLayout>

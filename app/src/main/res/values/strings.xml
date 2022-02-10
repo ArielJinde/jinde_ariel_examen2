@@ -17,5 +17,7 @@
     <string name="info">Info</string>
     <string name="cliente">Cliente :</string>
     <string name="apellido">Apellido</string>
+    <string name="cedula">cedula</string>
+    <string name="correo">Correo</string>
 
 </resources>

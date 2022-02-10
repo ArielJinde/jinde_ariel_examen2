@@ -28,6 +28,7 @@ import java.util.List;
 
 import jinde.appfb02.Admin.Administar;
 import jinde.appfb02.Admin.ListaMisPedidos_Activity;
+import jinde.appfb02.Admin.VistaClienteActivity;
 import jinde.appfb02.Clases.Pedidos;
 import jinde.appfb02.Clases.Usuario;
 import jinde.appfb02.Cliente.RealizarPedido_Activity;
@@ -74,9 +75,8 @@ public class Home_Activity extends AppCompatActivity {
             mail = bundle.getString("mail").toString();
         }
 
-        Toast.makeText(getApplicationContext(), "Ningun Dato traido : " +
-                        mAuth.getCurrentUser().getEmail(),
-                Toast.LENGTH_SHORT).show();
+        //Toast.makeText(Home_Activity.this, "Ningun Dato traido : " + mAuth.getCurrentUser().getEmail(),
+        //        Toast.LENGTH_SHORT).show();
         //Changer user data
         obtenerDatosUsuario(mail);
 
@@ -224,36 +224,6 @@ public class Home_Activity extends AppCompatActivity {
 
         }
         return super.onOptionsItemSelected(item);
-    }
-    private void cargarUsuarios() {
-        final List<Usuario> usuarios = new ArrayList<>();
-        databaseReference.child("usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    for (DataSnapshot ds : snapshot.getChildren()) {
-                        String codigo = ds.getKey();
-                        String telefono = ds.child("telefono").getValue().toString();
-                        String apellido = ds.child("apellido").getValue().toString();
-                        String nombre = ds.child("nombre").getValue().toString();
-                        String email = ds.child("email").getValue().toString();
-                        String direccion = ds.child("direccion").getValue().toString();
-                        if (mail != null  && mail.equals(email))
-                        usuarios.add(new Usuario(codigo, telefono, nombre, apellido, email, direccion));
-                        break;
-                    }
-
-
-
-
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
     }
 
 }

@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,11 +29,13 @@ import java.util.List;
 
 import jinde.appfb02.AuthActivity;
 import jinde.appfb02.Clases.Pedidos;
+import jinde.appfb02.Clases.Usuario;
 import jinde.appfb02.R;
 
 public class ListaMisPedidos_Activity extends AppCompatActivity {
     private TextView text, nombreT, apellidoT;
     private ListView listViewDatos;
+    private Button verCliente;
     //Variables Firebase
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
@@ -47,6 +50,7 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
         text = findViewById(R.id.textView4);
         nombreT = findViewById(R.id.textView_nombreL);
         apellidoT = findViewById(R.id.textView_ApellidoL);
+        verCliente = findViewById(R.id.buttonClient);
         listViewDatos = findViewById(R.id.listView_Datos);
 
         //Initialize firebase Auth
@@ -74,7 +78,15 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
         String val1 = nombreT.getText().toString().trim();
         String val2 = apellidoT.getText().toString().trim();
         cargarPedidos(val1, val2);
+        //acragar datos
 
+
+        verCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cargarUsuarios(mail);
+            }
+        });
 
     }
 
@@ -96,7 +108,7 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
                         String direccion = (String) ds.child("0").child("direccion").getValue();
                         String correo = (String) ds.child("1").child("correo").getValue();
                         String totalparcial = ds.child("2").getValue().toString();
-                        double total =  Double.parseDouble(ds.child("4").getValue().toString());
+                        double total = Double.parseDouble(ds.child("4").getValue().toString());
 
                         if (correo != null && apellido.equals(apellidoS))
                             pedidos.add(new Pedidos(id, correo, nombre, apellido, direccion, totalparcial, total));
@@ -184,27 +196,58 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
         this.finish();
     }
 
-    public void vistaCliente() {
 
-        Bundle bundle = getIntent().getExtras();
+    private void cargarUsuarios(String correo) {
+        final List<Usuario> usuarios = new ArrayList<>();
+        databaseReference.child("usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        String codigo = ds.getKey();
+                        String telefono = ds.child("telefono").getValue().toString();
+                        String apellido = ds.child("apellido").getValue().toString();
+                        String nombre = ds.child("nombre").getValue().toString();
+                        String email = ds.child("email").getValue().toString();
+                        String direccion = "AV ";
+                        if (correo != null && correo.equals(email)) {
+                            Intent intent = new Intent(ListaMisPedidos_Activity.this, VistaClienteActivity.class);
 
-        String codigo = bundle.getString("codigo").toString();
-        String correo = bundle.getString("correo").toString();
-        String nombre = bundle.getString("nombre").toString();
-        String apellido = bundle.getString("apellido").toString();
-        String direccion = bundle.getString("direccion").toString();
-        String telefono = bundle.getString("telefono").toString();
+                            intent.putExtra("codigo", codigo);
+                            intent.putExtra("nombre", nombre);
+                            intent.putExtra("apellido", apellido);
+                            intent.putExtra("telefono", telefono);
+                            intent.putExtra("correo", correo);
+                            intent.putExtra("direccion", direccion);
 
+                            startActivity(intent);
+                            break;
+                        }
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void vistaCliente(Usuario usuario) {
 
         Intent intent = new Intent(getApplicationContext(), VistaClienteActivity.class);
 
-        intent.putExtra("codigo", codigo);
-        intent.putExtra("nombre", nombre);
-        intent.putExtra("apellido", apellido);
-        intent.putExtra("telefono", telefono);
-        intent.putExtra("correo", correo);
-        intent.putExtra("direccion", direccion);
+        intent.putExtra("codigo", usuario.getCodigo().toString());
+        intent.putExtra("nombre", usuario.getNombre().toString());
+        intent.putExtra("apellido", usuario.getApellido().toString());
+        intent.putExtra("telefono", usuario.getTelefono().toString());
+        intent.putExtra("correo", usuario.getCorreo().toString());
+        intent.putExtra("direccion", usuario.getDirrecion().toString());
 
         startActivity(intent);
+
     }
 }

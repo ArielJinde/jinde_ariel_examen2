@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,8 +23,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jinde.appfb02.Admin.Administar;
 import jinde.appfb02.Admin.ListaMisPedidos_Activity;
+import jinde.appfb02.Clases.Pedidos;
+import jinde.appfb02.Clases.Usuario;
 import jinde.appfb02.Cliente.RealizarPedido_Activity;
 
 @SuppressWarnings("ALL")
@@ -218,4 +225,35 @@ public class Home_Activity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+    private void cargarUsuarios() {
+        final List<Usuario> usuarios = new ArrayList<>();
+        databaseReference.child("usuarios").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
+                        String codigo = ds.getKey();
+                        String telefono = ds.child("telefono").getValue().toString();
+                        String apellido = ds.child("apellido").getValue().toString();
+                        String nombre = ds.child("nombre").getValue().toString();
+                        String email = ds.child("email").getValue().toString();
+                        String direccion = ds.child("direccion").getValue().toString();
+                        if (mail != null  && mail.equals(email))
+                        usuarios.add(new Usuario(codigo, telefono, nombre, apellido, email, direccion));
+                        break;
+                    }
+
+
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 }

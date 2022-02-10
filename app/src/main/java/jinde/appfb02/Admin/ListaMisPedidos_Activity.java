@@ -183,4 +183,28 @@ public class ListaMisPedidos_Activity extends AppCompatActivity {
     public void onBackPressed() {
         this.finish();
     }
+
+    public void vistaCliente() {
+
+        Bundle bundle = getIntent().getExtras();
+
+        String codigo = bundle.getString("codigo").toString();
+        String correo = bundle.getString("correo").toString();
+        String nombre = bundle.getString("nombre").toString();
+        String apellido = bundle.getString("apellido").toString();
+        String direccion = bundle.getString("direccion").toString();
+        String telefono = bundle.getString("telefono").toString();
+
+
+        Intent intent = new Intent(getApplicationContext(), VistaClienteActivity.class);
+
+        intent.putExtra("codigo", codigo);
+        intent.putExtra("nombre", nombre);
+        intent.putExtra("apellido", apellido);
+        intent.putExtra("telefono", telefono);
+        intent.putExtra("correo", correo);
+        intent.putExtra("direccion", direccion);
+
+        startActivity(intent);
+    }
 }

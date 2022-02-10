@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,26 +22,30 @@ import jinde.appfb02.R;
 
 @SuppressWarnings("ALL")
 public class RealizarPedido_Activity extends AppCompatActivity {
+    private TextView text, nombreT, apellidoT;
+    private ListView listViewDatos;
+    //Variables Firebase
     private FirebaseAuth mAuth;
     private DatabaseReference databaseReference;
-
-    private TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_realizar_pedido);
+        // Initialize local variables
+        text = findViewById(R.id.textView4);
+        nombreT = findViewById(R.id.textView_nombreL);
+        apellidoT = findViewById(R.id.textView_ApellidoL);
+        listViewDatos = findViewById(R.id.listView_Datos);
+
         //Initialize firebase Auth
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
-        //Initialize local variables
-        textView = findViewById(R.id.textView3);
-
-        //Recollect intent data
+        //Traer Datos
         Bundle bundle = getIntent().getExtras();
-        String email = bundle.getString("mail").toString();
-
-        textView.setText("Bienvenido  : "+email);
+        String mail = bundle.getString("mail").toString();
+        String nom = bundle.getString("nombre").toString();
+        String ape = bundle.getString("apellido").toString();
 
         //Button Back to Before
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -57,6 +62,8 @@ public class RealizarPedido_Activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_overflow, menu);
+        MenuItem item = menu.findItem(R.id.item_misOrdenes);
+        item.setVisible(false);
         return  true;
     }
 
@@ -81,8 +88,9 @@ public class RealizarPedido_Activity extends AppCompatActivity {
                 break;
             case R.id.item_misOrdenes:
                 Intent intent2 = new Intent(getApplicationContext(), ListaMisPedidos_Activity.class);
-
-                intent2.putExtra("mail", textView.getText().toString());
+                intent2.putExtra("nombre", nombreT.getText());
+                intent2.putExtra("apellido", apellidoT.getText());
+                intent2.putExtra("mail", text.getText().toString());
                 startActivityForResult(intent2, 100);
                 break;
 
